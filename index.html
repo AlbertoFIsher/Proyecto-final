@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+
+	<head>
+	<style type="text/css">
+body{background-color:pink}
+
+</style>
+		<meta charset='utf-8'>
+		<link href="{{ url_for('static', filename='css/stylesheet2.css') }}" rel="stylesheet">
+    
+		
+	</head>
+	<body>
+	<!--Aqui uso un script para mostrar la hora simulando un reloj digital-->
+	<script type="text/javascript">
+	function startTime(){
+	today=new Date();
+	h=today.getHours();
+	m=today.getMinutes();
+	s=today.getSeconds();
+	m=checkTime(m);
+	s=checkTime(s);
+	document.getElementById('reloj').innerHTML=h+":"+m+":"+s;
+	t=setTimeout('startTime()',500);}
+	function checkTime(i)
+	{if (i<10) {i="0" + i;}return i;}
+	window.onload=function(){startTime();}
+	</script>
+	<div id="reloj" style="font-size:20px;"></div>
+		<div id='contenido'>
+			<header>
+				<hgroup>
+					<h1>taquitos.com</h1>
+					
+					<div>
+      <img src="{{url_for('static',filename='foto1.png') }}" style="width:20%" />
+   				</div>
+
+   				<!--Aqui uso el script de fb para poder dar me gusta a la pagina-->
+   				<div id="fb-root"></div>
+					<script type="text/javascript">
+					(function() {
+					var element = document.createElement('script'); 
+					element.type = "text/javascript"; 
+					element.async = true;
+					element.id = "facebook-jssdk"
+					element.src = "//connect.facebook.net/es_ES/all.js#xfbml=1";
+					var s = document.getElementsByTagName('script')[0]; 
+					s.parentNode.insertBefore(element, s);
+					})();
+					</script>
+					<div class="fb-like"></div>
+				</hgroup>
+				<nav>
+					<ul>
+						<li><a href="Inicio.html">MENU</a></li>
+						<li><a href="Promociones.html">¡Promociones!</a></li>
+						<li><a href="Contacto.html">Informacion de Contacto</a></li>
+					</ul>
+				</nav>
+			</header>
+			<section>
+				<div id='TextoPr'>
+					<article>
+						<hgroup>
+							<h1>Bienvenido a la pagina de Taquitos</h1>
+						</hgroup>
+						<p>¡Estas a punto de cambiar tu vida al ordenar los mejores taquitos del mundo, moriras lleno de felicidad!</p>
+					</article>
+					<aside>
+						<p>¡Visitanos y vive la experiencia!</p>
+						<p>Siguenos en twitter como <a href=''> @taquitos </a></p>
+						<p>Llamanos al 01800-taquitos</p>
+						<p>Envianos un correo a taquitos@hotmail.com</p>
+						<img src="{{url_for('static',filename='foto5.jpg') }}" style="width:40%" />
+					</aside>
+				</div>
+			</section>
+		</div>
+		<footer>
+		 <embed src="{{url_for('static',filename='jarabeTapatio.mp3') }}">
+		</footer>
+	</body>
+
+	
+</html>

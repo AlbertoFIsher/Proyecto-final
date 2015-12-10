@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+	<style type="text/css">
+	body{background-color:pink}
+</style>
+		<meta charset='utf-8'>
+		<link href="{{ url_for('static', filename='css/stylesheet2.css') }}" rel="stylesheet">
+	</head>
+	<body>
+	<script type="text/javascript">
+function startTime(){
+today=new Date();
+h=today.getHours();
+m=today.getMinutes();
+s=today.getSeconds();
+m=checkTime(m);
+s=checkTime(s);
+document.getElementById('reloj').innerHTML=h+":"+m+":"+s;
+t=setTimeout('startTime()',500);}
+function checkTime(i)
+{if (i<10) {i="0" + i;}return i;}
+window.onload=function(){startTime();}
+</script>
+<div id="reloj" style="font-size:20px;"></div>
+
+		<div id='contenido'>
+			<header>
+				<hgroup>
+					<h1>taquitos.com</h1>
+					<div>
+   				</div>
+   				<div id="fb-root"></div>
+<script type="text/javascript">
+(function() {
+var element = document.createElement('script'); 
+element.type = "text/javascript"; 
+element.async = true;
+element.id = "facebook-jssdk"
+element.src = "//connect.facebook.net/es_ES/all.js#xfbml=1";
+var s = document.getElementsByTagName('script')[0]; 
+s.parentNode.insertBefore(element, s);
+})();
+</script>
+
+<div class="fb-like"></div>
+				</hgroup>
+			</header>
+			<section>
+				<div id='TextoPe'>
+					<article>
+						<hgroup>
+							<h1>¡Promociones!</h1>
+						</hgroup>
+					</article>
+					<aside><img src="{{url_for('static',filename='foto9.jpg') }}" style="width:100%" />
+					<p>PAQUETE FAMILIAR</p>
+						<p>10 tacos al pastor, 10 de Suadero y 2lt de agua de jamaica              $200
+						</p>
+						<p></p>
+						<p>PAQUETE PAREJA</p>
+						<p>5 tacos al pastor, 5 de pollo y 1lt de agua de jamaica                 $100</p>
+						<p></p>
+						<p>MARTES 2x1</p>
+						<p>Todos los tacos al 2x1</p>
+						<p></p>
+						<p>VIERNES DE FIESTA</p>
+						<p>Cubeta de cerveza $120</p>
+						<p></p>
+						<p>Llamanos al 01800-taquitos</p>
+						<p>Envianos un correo a taquitos@hotmail.com</p>
+						<p><p><a href="javascript:if (confirm('Quieres regresar a incio?')) 
+					{parent.location='taquitosIndex.html';};">Volver</a></p>
+					</aside>
+					<!--Aqui creo un boton que me permita mandar a imprimir la pagina-->
+					<input type="button" value="Imprime esta ganga ;)" onclick="window.print()">
+				</div>
+				<!--Con este script captura la url de mi pagina web-->
+				<script type="text/javascript">
+				var dir = window.document.URL;
+				var dir2 = encodeURIComponent(dir);
+				var tit = window.document.title;
+				var tit2 = encodeURIComponent(tit);
+				</script>
+				<!--Aqui uso una imagen para poder compartir en facebook y despues en instagram-->
+				<a href="javascript:var dir=window.document.URL;var tit=window.document.title;var tit2=encodeURIComponent(tit);var dir2= encodeURIComponent(dir);window.location.href=('http://www.facebook.com/share.php?u='+dir2+'&amp;t='+tit2+'');"><img src="{{url_for('static',filename='compartir.png')}}" border="0" width="128" height="52" alt="Compartir" /></a>
+
+				<a href="javascript:var dir=window.document.URL;var tit=window.document.title;var tit2=encodeURIComponent(tit);window.location.href=('http://twitter.com/?status='+tit2+'%20'+dir+'');"><img src="{{url_for('static',filename='twitter.png')}}"border="0" width="128" height="52" alt="Compartir" /></a>
+
+
+
+			</section>
+		</div>
+		<footer>
+		 <embed src="{{url_for('static',filename='jarabeTapatio.mp3') }}">
+		</footer>
+
+	</body>
+</html>

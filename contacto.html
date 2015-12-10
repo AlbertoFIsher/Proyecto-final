@@ -1,0 +1,82 @@
+!DOCTYPE html>
+<html lang="es">
+	<head>
+	<style type="text/css">
+body{background-color:pink}
+</style>
+		<meta charset='utf-8'>
+		<link href="{{ url_for('static', filename='css/stylesheet2.css') }}" rel="stylesheet">
+	</head>
+	<body>
+	<!--Aqui uso un script para simular las visitas d ela pagina-->
+	<script type="text/javascript">
+	var ran
+	ran = Math.round(Math.random()*50000)
+	window.alert("Usted es el visitante " + ran + " de esta página.") 
+	</script> 
+	<script type="text/javascript">
+	function startTime(){
+	today=new Date();
+	h=today.getHours();
+	m=today.getMinutes();
+	s=today.getSeconds();
+	m=checkTime(m);
+	s=checkTime(s);
+	document.getElementById('reloj').innerHTML=h+":"+m+":"+s;
+	t=setTimeout('startTime()',500);}
+	function checkTime(i)
+	{if (i<10) {i="0" + i;}return i;}
+	window.onload=function(){startTime();}
+	</script>
+	<div id="reloj" style="font-size:20px;"></div>
+ 
+	
+		<div id='contenido'>
+			<header>
+				<hgroup>
+					<h1>taquitos.com</h1>
+					
+					<div>
+   				</div>
+
+				</hgroup>
+			</header>
+			<section>
+				<div id='TextoPe'>
+					<article>
+						<hgroup>
+							<h1>Integrantes del Equipo</h1>
+						</hgroup>
+					</article>
+					<aside><img src="{{url_for('static',filename='foto8.jpg') }}" style="width:70%" />
+					<p>Alberto Mosso Pescador</p>
+					<p>Sigueme en facebook como <a href="https://www.facebook.com/alberto.mossopescador?fref=ts">Alberto Mosso</a></p>
+					<p></p>
+					<p></p>
+					<img src="{{url_for('static',filename='foto6.jpg') }}" style="width:55%" />
+					<p></p>
+					<p>Mariana Chavez Avila</p>
+					<p>Sigueme en facebook como <a href="https://www.facebook.com/mariana.chavez.9849"> Mariana Chavez</a></p>
+					<p></p>
+					<p></p>
+					<img src="{{url_for('static',filename='foto7.jpg') }}" style="width:50%" />
+					<p></p>
+				<p><a href="javascript:if (confirm('Quieres regresar a incio?')) 
+					{parent.location='taquitosIndex.html';};">Volver</a>
+					</aside>
+				</div>
+				<a href="javascript:if 
+				(document.all){document.body.style.behavior='url(#default#homepage)'; 
+				document.body.setHomePage('http://localhost:5000/');};">
+				Hazme tu página de inicio
+				</a>
+				<input type="text" value="Deja tus sugerencias aqui..." onfocus="alert('Gracias por tus comentarios');" />
+				
+			</section>
+		</div>
+		<footer>
+		 <embed src="{{url_for('static',filename='jarabeTapatio.mp3') }}">
+		</footer>
+
+	</body>
+</html>
